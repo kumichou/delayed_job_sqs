@@ -1,0 +1,11 @@
+*.swp
+*.tmproj
+.DS_Store
+*.esproj/
+.idea/
+/coverage
+/rdoc
+/pkg
+.rvmrc
+.bundle/config
+Gemfile.lock
