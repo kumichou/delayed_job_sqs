@@ -73,6 +73,10 @@ user.delay.background_stuff
 
     rake jobs:work
 
+If you want to process a specific queue that's not in your initializer or called `default`, use the `QUEUE` or `QUEUES` environment variable:
+
+    QUEUE=tracking rake jobs:work
+
 That will start pulling jobs off the default queue and processing them. The gem will also handle multiple named queues if you have configured `rake` or `scripts/delayed_job` accordingly however be sure to name the queue when putting objects on the queue:
 
 ```ruby
