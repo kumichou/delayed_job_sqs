@@ -23,6 +23,12 @@ module Delayed
         @config ||= SqsConfig.new
       end
     end
+
+    # Override to remove reference to id: there's no id in an SQS::Job
+    def job_say(job, text, level = DEFAULT_LOG_LEVEL)
+      text = "Job #{job.name} #{text}"
+      say text, level
+    end    
   end
 
   module Backend
