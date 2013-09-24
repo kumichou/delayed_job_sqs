@@ -18,7 +18,7 @@ module Delayed
         field :queue,       :type => String
 
         def initialize(data = {})
-          puts "[init] Delayed::Backend::Sqs"
+          #puts "[init] Delayed::Backend::Sqs"
           @msg = nil
 
           if data.is_a?(AWS::SQS::ReceivedMessage)
@@ -55,7 +55,7 @@ module Delayed
         end
 
         def save
-          puts "[SAVE] #{@attributes.inspect}"
+          #puts "[SAVE] #{@attributes.inspect}"
 
           if @attributes[:handler].blank?
             raise "Handler missing!"
@@ -74,7 +74,7 @@ module Delayed
 
         def destroy
           if @msg
-            puts "job destroyed! #{@msg.id}"
+            #puts "job destroyed! #{@msg.id}"
             @msg.delete
           end
         end
